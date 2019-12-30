@@ -1,0 +1,103 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Restassured with BDD",
+      "author": "Ganesh P"
+    },
+    {
+      "id": 2,
+      "title": "Restassured with TDD",
+      "author": "Ganesh P"
+    },
+    {
+      "id": 3
+    },
+    {
+      "author": "Ganesh P",
+      "id": "5",
+      "title": "BDD-RestAssured Exercise"
+    },
+    {
+      "author": "ExecuteAutomation",
+      "id": "6",
+      "title": "API Testing Guide"
+    },
+    {
+      "author": "Ganesh P",
+      "id": "7",
+      "title": "BDD-RestAssured Exercise"
+    },
+    {
+      "author": "Ganesh P",
+      "id": "4",
+      "title": "BDD-RestAssured Exercise"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Excellent Learning",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "Ganesh Palanisamy",
+    "postId": "2"
+  },
+  "address": {
+    "primary": [
+      {
+        "City": "Auckland",
+        "State": "Auckland",
+        "Country": "New Zealand",
+        "PinCode": 1010
+      },
+      {
+        "City": "Auckland",
+        "State": "Auckland",
+        "Country": "New Zealand",
+        "PinCode": 1010
+      }
+    ],
+    "secondary": [
+      {
+        "City": "Auckland",
+        "State": "Auckland",
+        "Country": "New Zealand",
+        "PinCode": 1010
+      }
+    ]
+  },
+  "location": [
+    {
+      "id": 1,
+      "city": "chennai",
+      "country": "India",
+      "address": [
+        {
+          "street": "1st Street",
+          "flat_no": "5A",
+          "pincode": 123456,
+          "type": "primary"
+        },
+        {
+          "street": "2nd street",
+          "flat_no": "4A",
+          "pincode": 321421,
+          "type": "secondary"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "city": "London",
+      "country": "UK",
+      "address": {
+        "street": "PEARS street",
+        "flat_no": "1A",
+        "pincode": 321421
+      }
+    }
+  ]
+}

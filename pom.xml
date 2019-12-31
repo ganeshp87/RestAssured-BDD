@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>RestAssured_BDD</groupId>
+  <artifactId>RestAssured_BDD</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>RestAssured_BDD</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+	<dependency>
+	    <groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.0.0</version>
+	</dependency>
+    
+    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+    
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm-deps</artifactId>
+			<version>1.0.5</version>
+		</dependency> 
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>1.2.5</version>
+			<type>pom</type>
+		</dependency>
+
+ <!-- https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest -->
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>java-hamcrest</artifactId>
+		    <version>2.0.0.0</version>
+		</dependency>
+    
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		</dependency>
+    
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+    
+      <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+    
+       <!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-report-plugin -->
+		<dependency>
+		    <groupId>com.trivago.rta</groupId>
+		    <artifactId>cluecumber-report-plugin</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+    
+  </dependencies>
+  
+  
+  <build>
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          	<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.0</version>
+          <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+          <includes>
+          <include>**/Test*.java</include>
+          </includes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        
+        <plugin>
+		    <groupId>com.trivago.rta</groupId>
+		    <artifactId>cluecumber-report-plugin</artifactId>
+		    <version>2.3.1</version>
+		    <executions>
+		        <execution>
+		            <id>report</id>
+		            <phase>post-integration-test</phase>
+		            <goals>
+		                <goal>reporting</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		    <configuration>
+		    <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
+            <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+		          <logLevel>default</logLevel>
+		        <customParameters>
+			        <Custom_Parameter>This is a RestAssuredTestWithBDD</Custom_Parameter>
+			        <Custom_URL>http://localhost:3000/posts</Custom_URL>
+			        <_Text>Executing the Rest API Test using RestAssured with BDD approach</_Text>
+			        <skip>false</skip>
+			        <failScenariosOnPendingOrUndefinedSteps>true</failScenariosOnPendingOrUndefinedSteps>
+			        <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
+				    <expandStepHooks>true</expandStepHooks>
+				    <expandDocStrings>true</expandDocStrings>
+				    <customPageTitle>Ganesh P Report</customPageTitle>
+				    <customStatusColorPassed>#017FAF</customStatusColorPassed>
+				    <customStatusColorFailed>#C94A38</customStatusColorFailed>
+				    <customStatusColorSkipped>#F48F00</customStatusColorSkipped>
+			     </customParameters>
+		    </configuration>    
+       </plugin>
+      </plugins>
+  </build>
+</project>
